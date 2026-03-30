@@ -3,146 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La Taberna de las Pruebas - Bienvenidos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Grenze+Gotisch:wght@600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+    <title>Protocolo de Acceso | Nodo 01</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Paleta: Marrones madera, Oro viejo, Negro ceniza */
-            --color-fondo: #1a120b; /* Marrón muy oscuro, casi negro */
-            --color-madera-clara: #aa8967; /* Textura de madera desgastada */
-            --color-oro-sucio: #c09d52; 
-            --color-pergamino-oscuro: #d9c4a0;
-            --color-hierro: #333333;
+            --neon-cian: #00f3ff;
+            --neon-rosa: #ff0055;
+            --fondo-oscuro: #050505;
+            --texto-base: #a0f6ff;
         }
 
         body {
             margin: 0;
             padding: 0;
-            background-color: var(--color-fondo);
-            /* Usamos un degradado que simula la luz de una vela central */
-            background-image: radial-gradient(circle, #2c1e12 0%, #1a120b 100%);
-            color: var(--color-pergamino-oscuro);
-            font-family: 'IM Fell English', serif;
+            background-color: var(--fondo-oscuro);
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; /* Cuadrícula de fondo */
+            color: var(--texto-base);
+            font-family: 'Rajdhani', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            text-transform: uppercase;
         }
 
-        /* El letrero de la taberna */
-        .letrero-taberna {
-            text-align: center;
-            padding: 50px 60px;
-            max-width: 650px;
-            background-color: #26190e; /* Color madera oscura */
-            
-            /* Bordes que simulan madera tallada y hierro */
-            border: 8px solid #3a2514;
-            outline: 2px solid var(--color-hierro);
-            
-            /* Sombra pesada para dar volumen */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.5);
-            
-            position: relative;
-            border-radius: 4px;
-        }
-
-        /* "Remaches" de hierro en las esquinas */
-        .letrero-taberna::before {
-            content: '';
+        /* Efecto de parpadeo de línea de escaneo */
+        body::after {
+            content: "";
             position: absolute;
-            top: 10px; left: 10px; width: 15px; height: 15px;
-            background: var(--color-hierro); border-radius: 50%;
-            box-shadow: 610px 0 var(--color-hierro), 0 350px var(--color-hierro), 610px 350px var(--color-hierro);
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .frame-interfaz {
+            position: relative;
+            padding: 60px;
+            background: rgba(0, 243, 255, 0.02);
+            border: 1px solid var(--neon-cian);
+            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2), inset 0 0 20px rgba(0, 243, 255, 0.1);
+            /* Corte de esquina futurista */
+            clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        /* Decoración de esquina superior izquierda */
+        .corner-tag {
+            position: absolute;
+            top: 0; left: 0;
+            background: var(--neon-cian);
+            color: black;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 10px;
+            font-family: 'Orbitron', sans-serif;
         }
 
         h1 {
-            font-family: 'Grenze Gotisch', cursive; /* Fuente gótica fuerte */
-            font-size: 3.8rem;
-            margin: 0 0 10px 0;
-            color: var(--color-oro-sucio);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            /* Efecto de quemado/tallado sutil */
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin: 0;
+            color: white;
+            text-shadow: 0 0 10px var(--neon-cian), 0 0 20px var(--neon-cian);
+            letter-spacing: 5px;
         }
 
-        .divisor-taberna {
-            width: 80%;
-            height: 4px;
-            background: var(--color-hierro);
-            margin: 20px auto;
-            position: relative;
-        }
-        .divisor-taberna::after {
-            content: '🍺'; /* O un icono de martillo/espada si prefieres */
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #26190e;
-            padding: 0 10px;
-            font-size: 1.5rem;
+        .glitch-text {
+            color: var(--neon-rosa);
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
 
         p {
-            font-family: 'Almendra', serif;
-            font-size: 1.4rem;
-            line-height: 1.6;
-            color: var(--color-pergamino-oscuro);
-            margin-bottom: 40px;
-            font-style: italic;
-        }
-
-        .boton-taberna {
-            display: inline-block;
-            padding: 15px 45px;
-            background-color: #5d4037; /* Marrón rojizo */
-            color: white;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-family: 'Grenze Gotisch', cursive;
             font-size: 1.2rem;
-            letter-spacing: 1px;
-            border: 3px solid #3a2514;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 0px #3a2514; /* Efecto 3D de madera */
+            line-height: 1.4;
+            margin-bottom: 40px;
+            opacity: 0.8;
         }
 
-        .boton-taberna:hover {
-            background-color: #795548;
-            transform: translateY(2px);
-            box-shadow: 0 3px 0px #3a2514;
+        .btn-cyber {
+            position: relative;
+            padding: 15px 40px;
+            background: transparent;
+            color: var(--neon-cian);
+            border: 1px solid var(--neon-cian);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
             cursor: pointer;
+            transition: all 0.3s;
+            overflow: hidden;
         }
 
-        .boton-taberna:active {
-            transform: translateY(5px);
-            box-shadow: 0 0px 0px #3a2514;
+        .btn-cyber:hover {
+            background: var(--neon-cian);
+            color: black;
+            box-shadow: 0 0 30px var(--neon-cian);
         }
 
-        /* Ajustes para móviles */
-        @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .letrero-taberna { padding: 30px; width: 85%; border-width: 5px; }
-            p { font-size: 1.1rem; }
-            .letrero-taberna::before { display: none; } /* Quitamos remaches en móvil */
+        /* Animación de escaneo */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 8;
+            background: linear-gradient(0deg, rgba(0, 243, 255, 0) 0%, rgba(0, 243, 255, 0.1) 50%, rgba(0, 243, 255, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            animation: scan 4s linear infinite;
         }
+
+        @keyframes scan {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="letrero-taberna">
-        <h1>¡Salud, nobles viajeros!</h1>
+    <div class="frame-interfaz">
+        <div class="corner-tag">ID_STATUS: SECURE</div>
+        <div class="scanline"></div>
         
-        <div class="divisor-taberna"></div>
+        <div class="glitch-text">> SISTEMA EN LÍNEA _</div>
+        <h1>BIENVENIDOS, OPERADORES</h1>
         
-        <p>Habéis encontrado refugio en la Posada del Código Local.<br> 
-           Descansad vuestros pies, pedid una pinta de bits y preparaos para la aventura.</p>
+        <p>Sincronización de red completada.<br> 
+           Iniciando protocolo de bienvenida en el nodo local.</p>
         
-        <a href="#" class="boton-taberna">Acercarse a la barra</a>
+        <button class="btn-cyber">INICIALIZAR SESIÓN</button>
     </div>
 
 </body>
