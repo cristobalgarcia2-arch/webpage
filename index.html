@@ -3,156 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenidos a la Torre de Merlín</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Ebenecser&family=IM+Fell+English+SC&family=IM+Fell+DW+Pica&display=swap" rel="stylesheet">
+    <title>La Taberna de las Pruebas - Bienvenidos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:wght@400;700&family=Grenze+Gotisch:wght@600&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Colores: Púrpura místico, Oro viejo y Negro profundo */
-            --color-fondo: #0a0a12; /* Un negro azulado muy oscuro */
-            --color-pergamino: #e4dcc7;
-            --color-acento: #bd9af7; /* Un violeta mágico brillante */
-            --color-oro: #d4af37;
-            --borde-magico: 2px solid var(--color-oro);
+            /* Paleta: Marrones madera, Oro viejo, Negro ceniza */
+            --color-fondo: #1a120b; /* Marrón muy oscuro, casi negro */
+            --color-madera-clara: #aa8967; /* Textura de madera desgastada */
+            --color-oro-sucio: #c09d52; 
+            --color-pergamino-oscuro: #d9c4a0;
+            --color-hierro: #333333;
         }
 
         body {
             margin: 0;
             padding: 0;
             background-color: var(--color-fondo);
-            /* Imagen de fondo sutil: estrellas o textura de piedra (opcional) */
-            background-image: radial-gradient(circle, rgba(29,32,58,1) 0%, rgba(10,10,18,1) 100%);
-            color: var(--color-pergamino);
-            font-family: 'IM Fell DW Pica', serif; /* Fuente de libro antiguo */
+            /* Usamos un degradado que simula la luz de una vela central */
+            background-image: radial-gradient(circle, #2c1e12 0%, #1a120b 100%);
+            color: var(--color-pergamino-oscuro);
+            font-family: 'IM Fell English', serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            perspective: 1000px;
         }
 
-        /* Brillo mágico de fondo */
-        body::before {
+        /* El letrero de la taberna */
+        .letrero-taberna {
+            text-align: center;
+            padding: 50px 60px;
+            max-width: 650px;
+            background-color: #26190e; /* Color madera oscura */
+            
+            /* Bordes que simulan madera tallada y hierro */
+            border: 8px solid #3a2514;
+            outline: 2px solid var(--color-hierro);
+            
+            /* Sombra pesada para dar volumen */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 15px rgba(0,0,0,0.5);
+            
+            position: relative;
+            border-radius: 4px;
+        }
+
+        /* "Remaches" de hierro en las esquinas */
+        .letrero-taberna::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--color-acento);
-            border-radius: 50%;
-            filter: blur(150px);
-            opacity: 0.2;
-            z-index: -1;
-            animation: resplandor 10s infinite alternate;
+            top: 10px; left: 10px; width: 15px; height: 15px;
+            background: var(--color-hierro); border-radius: 50%;
+            box-shadow: 610px 0 var(--color-hierro), 0 350px var(--color-hierro), 610px 350px var(--color-hierro);
         }
-
-        .contenedor-pergamino {
-            text-align: center;
-            padding: 60px;
-            max-width: 700px;
-            background-color: rgba(15, 15, 25, 0.9); /* Fondo oscuro casi transparente */
-            border: var(--borde-magico);
-            box-shadow: 0 0 30px rgba(189, 154, 247, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.2);
-            position: relative;
-            border-radius: 10px;
-        }
-
-        /* Esquinas decorativas al estilo antiguo */
-        .contenedor-pergamino::before, .contenedor-pergamino::after {
-            content: '✧';
-            position: absolute;
-            color: var(--color-oro);
-            font-size: 1.5rem;
-        }
-        .contenedor-pergamino::before { top: 10px; left: 10px; }
-        .contenedor-pergamino::after { bottom: 10px; right: 10px; }
 
         h1 {
-            font-family: 'Cinzel Decorative', cursive; /* Fuente gótica/fantástica */
-            font-size: 3.5rem;
-            margin-bottom: 5px;
-            margin-top: 0;
-            color: var(--color-oro);
-            text-shadow: 0 0 15px var(--color-oro), 0 0 3px var(--color-acento);
-            letter-spacing: 3px;
-        }
-
-        .subtitulo {
-            font-family: 'IM Fell English SC', serif;
-            color: var(--color-acento);
-            font-size: 1.2rem;
+            font-family: 'Grenze Gotisch', cursive; /* Fuente gótica fuerte */
+            font-size: 3.8rem;
+            margin: 0 0 10px 0;
+            color: var(--color-oro-sucio);
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 30px;
+            letter-spacing: 2px;
+            /* Efecto de quemado/tallado sutil */
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
         }
 
-        .separador-magico {
-            font-size: 2rem;
-            color: var(--color-oro);
-            margin: 20px 0;
-            user-select: none;
+        .divisor-taberna {
+            width: 80%;
+            height: 4px;
+            background: var(--color-hierro);
+            margin: 20px auto;
+            position: relative;
+        }
+        .divisor-taberna::after {
+            content: '🍺'; /* O un icono de martillo/espada si prefieres */
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #26190e;
+            padding: 0 10px;
+            font-size: 1.5rem;
         }
 
         p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            font-weight: 300;
-            max-width: 80%;
-            margin: 0 auto 40px auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-family: 'Almendra', serif;
+            font-size: 1.4rem;
+            line-height: 1.6;
+            color: var(--color-pergamino-oscuro);
+            margin-bottom: 40px;
+            font-style: italic;
         }
 
-        .boton-encantado {
+        .boton-taberna {
             display: inline-block;
-            padding: 15px 40px;
-            border: 1px solid var(--color-acento);
-            background: transparent;
-            color: var(--color-acento);
+            padding: 15px 45px;
+            background-color: #5d4037; /* Marrón rojizo */
+            color: white;
             text-decoration: none;
             text-transform: uppercase;
-            font-family: 'IM Fell English SC', serif;
-            font-size: 1rem;
-            letter-spacing: 3px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
+            font-family: 'Grenze Gotisch', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border: 3px solid #3a2514;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 0px #3a2514; /* Efecto 3D de madera */
+        }
+
+        .boton-taberna:hover {
+            background-color: #795548;
+            transform: translateY(2px);
+            box-shadow: 0 3px 0px #3a2514;
             cursor: pointer;
-            box-shadow: 0 0 10px rgba(189, 154, 247, 0.2);
         }
 
-        .boton-encantado:hover {
-            border-color: var(--color-oro);
-            color: var(--color-fondo);
-            background-color: var(--color-oro);
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
-        }
-
-        /* Animación de resplandor rítmico */
-        @keyframes resplandor {
-            0% { transform: scale(1); opacity: 0.2; }
-            100% { transform: scale(1.5); opacity: 0.3; }
+        .boton-taberna:active {
+            transform: translateY(5px);
+            box-shadow: 0 0px 0px #3a2514;
         }
 
         /* Ajustes para móviles */
         @media (max-width: 600px) {
-            h1 { font-size: 2.2rem; }
-            .contenedor-pergamino { padding: 30px; width: 90%; }
+            h1 { font-size: 2.5rem; }
+            .letrero-taberna { padding: 30px; width: 85%; border-width: 5px; }
             p { font-size: 1.1rem; }
+            .letrero-taberna::before { display: none; } /* Quitamos remaches en móvil */
         }
     </style>
 </head>
 <body>
 
-    <div class="contenedor-pergamino">
-        <h1>Bienvenidos, buscadores de arcana</h1>
-        <div class="subtitulo">Al portal de la sabiduría antigua</div>
+    <div class="letrero-taberna">
+        <h1>¡Salud, nobles viajeros!</h1>
         
-        <div class="separador-magico">🕀 ✧ 🕀</div>
+        <div class="divisor-taberna"></div>
         
-        <p>Adentraros en este refugio elemental. <br> 
-           Aquí, las runas del código conjuran realidades y los secretos del éter digital os serán revelados.</p>
+        <p>Habéis encontrado refugio en la Posada del Código Local.<br> 
+           Descansad vuestros pies, pedid una pinta de bits y preparaos para la aventura.</p>
         
-        <a href="#" class="boton-encantado">Desvelar el Misterio</a>
+        <a href="#" class="boton-taberna">Acercarse a la barra</a>
     </div>
 
 </body>
